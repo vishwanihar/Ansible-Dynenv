@@ -1,0 +1,19 @@
+---
+- Name: K8s Cluster Post Configuration
+  hosts: all
+  become_user: sudo
+  
+  roles:
+    - create_k8s_namespaces
+    - DevTestCert
+    - Helm_ingressController
+    - LDAP_Configuration
+    - Set_jenkins_user
+    - service_account_jenkins
+    - rolebinding_serviceaccount
+    - patch_deployment
+    - cluster_rolebinding
+    - tiller_deployment
+    - daemonsets
+    - datadog
+    - NTP
